@@ -240,19 +240,19 @@ public class NavigationFragment extends BaseFragment{
         return view;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        onHiddenChanged(!isVisible());
-        addListeners();
-    }
+    // @Override
+    // public void onResume() {
+    //     super.onResume();
+    //     onHiddenChanged(!isVisible());
+    //     addListeners();
+    // }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        mLocationView.onPause();
-        removeListeners();
-    }
+    // @Override
+    // public void onPause() {
+    //     super.onPause();
+    //     mLocationView.onPause();
+    //     removeListeners();
+    // }
 
     @Override
     protected void updateStatusBar() {
@@ -703,7 +703,8 @@ public class NavigationFragment extends BaseFragment{
                 mSublocationsAdapter.submit(mLocation.getSublocations());
                 updateFilteredVenuesIconsList();
 
-                if (isVisible()) loadMap();
+                // if (isVisible())
+                loadMap();
             }
         });
     }
