@@ -100,7 +100,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.navigine.wayfinding'
                 artifactId = "$project.name"
-                version = "0.0.1"
+                version = "0.0.3"
             }
         }
         repositories {

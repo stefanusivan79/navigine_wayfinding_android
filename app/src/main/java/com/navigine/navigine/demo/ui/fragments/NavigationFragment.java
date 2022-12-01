@@ -240,18 +240,30 @@ public class NavigationFragment extends BaseFragment{
         return view;
     }
 
-    // @Override
-    // public void onResume() {
-    //     super.onResume();
-    //     onHiddenChanged(!isVisible());
-    //     addListeners();
-    // }
+     @Override
+     public void onResume() {
+         super.onResume();
+         Log.d(TAG, "onResume: isvisible => " + isVisible());
+         onHiddenChanged(!isVisible());
+         addListeners();
+     }
+
+     @Override
+     public void onPause() {
+         super.onPause();
+         Log.d(TAG, "onPause: remove listener");
+         mLocationView.onPause();
+         removeListeners();
+     }
+
 
     // @Override
-    // public void onPause() {
-    //     super.onPause();
-    //     mLocationView.onPause();
-    //     removeListeners();
+    // public void onDestroyView() {
+    //     super.onDestroyView();
+    //     try {
+    //         mLocationView.onPause();
+    //              removeListeners();
+    //     }catch (Exception e){}
     // }
 
     @Override
@@ -703,8 +715,8 @@ public class NavigationFragment extends BaseFragment{
                 mSublocationsAdapter.submit(mLocation.getSublocations());
                 updateFilteredVenuesIconsList();
 
-                // if (isVisible())
-                loadMap();
+//                 if (isVisible())
+                     loadMap();
             }
         });
     }
@@ -1138,14 +1150,14 @@ public class NavigationFragment extends BaseFragment{
         if (mFromVenue == null && mFromPoint == null && mSelectMapPoint) return;
 
         onMakeRoute();
-        try {
-            removeListeners();
-        }catch (Exception e){
-
-        }
-
-        onHiddenChanged(false);
-        addListeners();
+//        try {
+//            removeListeners();
+//        }catch (Exception e){
+//
+//        }
+//
+//        onHiddenChanged(false);
+//        addListeners();
     }
 
     private boolean loadSubLocation(int index) {
