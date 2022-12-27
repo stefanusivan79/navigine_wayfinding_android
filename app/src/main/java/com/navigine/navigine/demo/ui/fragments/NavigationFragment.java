@@ -1150,6 +1150,13 @@ public class NavigationFragment extends BaseFragment{
         if (mFromVenue == null && mFromPoint == null && mSelectMapPoint) return;
 
         onMakeRoute();
+        //force current position view
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                toggleAdjustMode();
+            }
+        }, 1500);
 //        try {
 //            removeListeners();
 //        }catch (Exception e){
