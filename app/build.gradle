@@ -50,7 +50,10 @@ dependencies {
     def shimmer_version        = "0.5.0"
 
     implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
-    implementation 'com.github.Navigine:Indoor-Navigation-Android-Mobile-SDK-2.0:46dd8a07c6'
+    // implementation 'com.github.Navigine:Indoor-Navigation-Android-Mobile-SDK-2.0:46dd8a07c6'
+
+    // navigine sdk
+    implementation project(":libnavigine")
 
     testImplementation "junit:junit:$junit_version"
 
